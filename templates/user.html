@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    <style>
+        body {
+            background-image: url('/static/images/calculate.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body >
+    <br><br> <br><br>
+    
+    <div id="header" style="position: fixed; left: 40%; margin-top: -50px; margin-left: -100px;">
+        <br>
+        <div style="text-align:center;"><h2>Hello there!!!!</h2> <h3> Ideal Weight Calculator </h3></div>
+        
+        <br><br>
+        <div id="calc" style="background-color:rgb(143, 187, 228);margin: 0 auto;border-style:groove;text-align: left;">
+            <form action="calculate" method="post">
+                <table>
+                    <tr>
+                        <td>
+                            Age :
+                        </td>
+                        <td>
+                            <input class="form-control" type="number" step="1" required name="age" min="2" max="100" maxlength="3" placeholder="years" onKeyPress="if(this.value.length==3) return false;"/>
+                            ages from 2- 80 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Gender : </td>
+                        <td>
+                            <input type="radio" name="gender" value="male" checked> Male 
+                            <input type="radio" name="gender" value="female"> Female
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Height : </td>
+                        <td>
+                            <input class="form-control" type="number" step="1" required name="height" min="60" max="200" maxlength="3" placeholder="cm" onKeyPress="if(this.value.length==3) return false;"/>
+                        </td>
+                    </tr>
+                    <tr style="height: 50px ;">
+                        <td><input class="btn btn-success" type="submit" value="Calculate"></td>
+                        <td><input type="reset" value="Reset"> <a href="/dietplans">View healthy diet plans</a></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div style="background-color:rgb(215, 243, 114);">
+            <p >{{message}} <h3>{{weight}}</h3></p>
+        </div>
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
